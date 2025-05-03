@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  color: white;
+  font-weight: 600;
+}
+
+#adminform > div > div > input {
+  border: 1px white solid;
+  background-color: transparent;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#tasklist::-webkit-scrollbar {
+  display: none;
+}
+
+#Alltaskscroll::-webkit-scrollbar {
+  display: none;
+}
