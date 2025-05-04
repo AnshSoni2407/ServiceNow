@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./index.css";
 import "./App.css";
 import Login from "./components/Auth/Login.jsx";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboarrd.jsx";
 import AdminDashboard from "./components/Dashboard/AdminDashboard.jsx";
+import { AuthContext } from "./context/AuthProvider.jsx";
 
 const App = () => {
-  const [user, setUser] = useState(null);
 
+
+  const [user, setUser] = useState(null);
+  const authData = useContext(AuthContext);
+  console.log(authData.userData);
+
+
+  
   const handleLogin = (email, password) => {
     if (email == "admin@me.com" && password == "123") {
       setUser("admin");
