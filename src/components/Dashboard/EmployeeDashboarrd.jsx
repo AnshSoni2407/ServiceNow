@@ -3,14 +3,14 @@ import Header from "../other/Header";
 import TasklistNum from "../other/TasklistNum";
 import Tasklist from "../TaskList/Tasklist";
 
-const EmployeeDashboard = (props) => {
-  console.log(props);
+const EmployeeDashboard = ({data}) => {
+  console.log(data);
   return (
     <div className="p-5  h-screen">
-      <h1> {props.data.email}</h1>
-      <Header />
-      <TasklistNum />
-      <Tasklist />
+      
+      <Header data={data} />
+      <TasklistNum data={data} />
+      <Tasklist data={data} />
     </div>
   );
 };

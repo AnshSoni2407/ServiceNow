@@ -1,10 +1,16 @@
 import React from "react";
-
 const employeesData = [
   {
     id: 1,
+    firstName: "Aarav",
     email: "employee1@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1,
+    },
     tasks: [
       {
         title: "Update client records",
@@ -38,11 +44,17 @@ const employeesData = [
       },
     ],
   },
-  
   {
     id: 2,
+    firstName: "Priya",
     email: "employee2@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0,
+    },
     tasks: [
       {
         title: "Design meeting",
@@ -68,8 +80,15 @@ const employeesData = [
   },
   {
     id: 3,
+    firstName: "Vikram",
     email: "employee3@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 2,
+      failed: 1,
+    },
     tasks: [
       {
         title: "Write documentation",
@@ -115,8 +134,15 @@ const employeesData = [
   },
   {
     id: 4,
+    firstName: "Sneha",
     email: "employee4@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 2,
+      failed: 0,
+    },
     tasks: [
       {
         title: "Client call",
@@ -152,8 +178,15 @@ const employeesData = [
   },
   {
     id: 5,
+    firstName: "Rohan",
     email: "employee5@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 2,
+      failed: 1,
+    },
     tasks: [
       {
         title: "SEO audit",
@@ -207,6 +240,7 @@ const adminData = [
   },
 ];
 
+
 export const setLocalStorage = () => {
   localStorage.setItem("employees", JSON.stringify(employeesData));
   localStorage.setItem("admin", JSON.stringify(adminData)); 
@@ -220,3 +254,5 @@ export const GetLocalStorage = () => {
   
 
 };
+
+

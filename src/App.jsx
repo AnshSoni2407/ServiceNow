@@ -8,23 +8,18 @@ import { AuthContext } from "./context/AuthProvider.jsx";
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [LoggedinUserData, setLoggedinUserData] = useState(null)
+  const [LoggedinUserData, setLoggedinUserData] = useState(null);
   const authData = useContext(AuthContext);
   console.log(authData.userData);
 
-useEffect(() => {
-  if (authData.userData){
-    const loggedInUser = localStorage.getItem("loggedInUser");
-    if(loggedInUser){
-      setUser(loggedInUser.role)
+  useEffect(() => {
+    if (authData.userData) {
+      const loggedInUser = localStorage.getItem("loggedInUser");
+      if (loggedInUser) {
+        setUser(loggedInUser.role);
+      }
     }
-  }
-
- 
-}, [authData])
-
-
-
+  }, [authData]);
 
   const handleLogin = (email, password) => {
     if (
@@ -34,21 +29,19 @@ useEffect(() => {
       )
     ) {
       setUser("admin");
-      localStorage.setItem("loggedInUser", JSON.stringify({role:'admin'}));
-    } else if (
-      authData 
-      
-    ) {
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+    } else if (authData) {
       const employee = authData.userData.employees.find(
         (e) => email == e.email && password == e.password
-      ); 
-      if (employee){
-        setLoggedinUserData(employee)
-setUser("employee");
-localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee" }));
+      );
+      if (employee) {
+        setLoggedinUserData(employee);
+        setUser("employee");
+        localStorage.setItem(
+          "loggedInUser",
+          JSON.stringify({ role: "employee" })
+        );
       }
-      
-
     } else {
       console.log(`invalid credentials`);
       alert("Invalid credentials");
@@ -58,7 +51,11 @@ localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee" }));
   return (
     <>
       {!user ? <Login handleLogin={handleLogin} /> : ""}
-      {user == "admin" ? <AdminDashboard /> : <EmployeeDashboard data={LoggedinUserData} />}
+      {user == "admin" ? (
+        <AdminDashboard />
+      ) : user == "employee" ? (
+        <EmployeeDashboard data={LoggedinUserData} />
+      ) : null}
     </>
   );
 };
