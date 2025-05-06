@@ -5,10 +5,11 @@ import AllTask from "../other/AllTask";
 
 const AdminDashboard = () => {
   return (
-    <div className="p-5">
+    <div id="AdminDiv" className="p-5 overflow-auto h-[100vh] ">
       <Header />
       <CreateTask />
       <AllTask />
+     
     </div>
   );
 };

@@ -5,21 +5,31 @@ import Login from "./components/Auth/Login.jsx";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboarrd.jsx";
 import AdminDashboard from "./components/Dashboard/AdminDashboard.jsx";
 import { AuthContext } from "./context/AuthProvider.jsx";
+import { data } from "autoprefixer";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [LoggedinUserData, setLoggedinUserData] = useState(null);
   const authData = useContext(AuthContext);
-  
 
   useEffect(() => {
-    if (authData.userData) {
-      const loggedInUser = localStorage.getItem("loggedInUser");
-      if (loggedInUser) {
-        setUser(loggedInUser.role);
-      }
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    
+
+    if (loggedInUser){
+      
+      const userData = JSON.parse(loggedInUser);
+      setUser(userData.role);
+      setLoggedinUserData(userData.data);
     }
-  }, [authData]);
+    
+  
+ 
+  }, [])
+  
+  
+
+
 
   const handleLogin = (email, password) => {
     if (
@@ -39,7 +49,7 @@ const App = () => {
         setUser("employee");
         localStorage.setItem(
           "loggedInUser",
-          JSON.stringify({ role: "employee" })
+          JSON.stringify({ role: "employee", data: employee })
         );
       }
     } else {
