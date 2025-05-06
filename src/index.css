@@ -5,6 +5,7 @@
 * {
   color: white;
   font-weight: 600;
+  overflow: hidden;
 }
 
 #adminform > div > div > input {
@@ -21,3 +22,5 @@
 #Alltaskscroll::-webkit-scrollbar {
   display: none;
 }
+
+

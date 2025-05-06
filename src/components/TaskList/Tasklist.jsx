@@ -1,106 +1,22 @@
-import React from 'react'
+import React from "react";
+import NewTask from "./NewTask";
+import AcceptTask from "./AcceptTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
 
 const Tasklist = ({data}) => {
+  console.log(data);
   return (
-    <div id='tasklist' className="flex items-center overflow-x-scroll justify-start gap-5 flex-nowrap h-[55%] w-full py-5 mt-10">
-      <div className=" flex-shrink-0 h-full w-[300px] rounded-xl bg-green-400">
-        <div>
-          <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
-            <h4 className="bg-red-600 p-1 rounded-md">High</h4>{" "}
-            <h2>10/05/2003</h2>
-          </div>
-          <h1 className="mt-5 text-center text-white text-2xl font-extrabold">
-            My birthday
-          </h1>
-        </div>
-        <p className="text-white p-5 font-semibold overflow-x-autox-scroll">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam iusto
-          perferendis reprehenderit obcaecati nam at quod, ipsam nesciunt vel
-          eius?
-        </p>
-      </div>
-      <div className=" flex-shrink-0 h-full w-[300px] rounded-xl bg-yellow-400">
-        <div>
-          <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
-            <h4 className="bg-red-600 p-1 rounded-md">High</h4>{" "}
-            <h2>10/05/2003</h2>
-          </div>
-          <h1 className="mt-5 text-center text-white text-2xl font-extrabold">
-            My birthday
-          </h1>
-        </div>
-        <p className="text-white p-5 font-semibold overflow-x-autox-scroll">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam iusto
-          perferendis reprehenderit obcaecati nam at quod, ipsam nesciunt vel
-          eius?
-        </p>
-      </div>{" "}
-      <div className=" flex-shrink-0 h-full w-[300px] rounded-xl bg-red-400">
-        <div>
-          <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
-            <h4 className="bg-red-600 p-1 rounded-md">High</h4>{" "}
-            <h2>10/05/2003</h2>
-          </div>
-          <h1 className="mt-5 text-center text-white text-2xl font-extrabold">
-            My birthday
-          </h1>
-        </div>
-        <p className="text-white p-5 font-semibold overflow-x-autox-scroll">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam iusto
-          perferendis reprehenderit obcaecati nam at quod, ipsam nesciunt vel
-          eius?
-        </p>
-      </div>{" "}
-      <div className=" flex-shrink-0 h-full w-[300px] rounded-xl bg-blue-400">
-        <div>
-          <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
-            <h4 className="bg-red-600 p-1 rounded-md">High</h4>{" "}
-            <h2>10/05/2003</h2>
-          </div>
-          <h1 className="mt-5 text-center text-white text-2xl font-extrabold">
-            My birthday
-          </h1>
-        </div>
-        <p className="text-white p-5 font-semibold overflow-x-autox-scroll">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam iusto
-          perferendis reprehenderit obcaecati nam at quod, ipsam nesciunt vel
-          eius?
-        </p>
-      </div>{" "}
-      <div className=" flex-shrink-0 h-full w-[300px] rounded-xl bg-green-400">
-        <div>
-          <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
-            <h4 className="bg-red-600 p-1 rounded-md">High</h4>{" "}
-            <h2>10/05/2003</h2>
-          </div>
-          <h1 className="mt-5 text-center text-white text-2xl font-extrabold">
-            My birthday
-          </h1>
-        </div>
-        <p className="text-white p-5 font-semibold overflow-x-autox-scroll">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam iusto
-          perferendis reprehenderit obcaecati nam at quod, ipsam nesciunt vel
-          eius?
-        </p>
-      </div>{" "}
-      <div className=" flex-shrink-0 h-full w-[300px] rounded-xl bg-red-400">
-        <div>
-          <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
-            <h4 className="bg-red-600 p-1 rounded-md">High</h4>{" "}
-            <h2>10/05/2003</h2>
-          </div>
-          <h1 className="mt-5 text-center text-white text-2xl font-extrabold">
-            My birthday
-          </h1>
-        </div>
-        <p className="text-white p-5 font-semibold overflow-x-autox-scroll">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam iusto
-          perferendis reprehenderit obcaecati nam at quod, ipsam nesciunt vel
-          eius?
-        </p>
-      </div>
+    <div
+      id="tasklist"
+      className="flex items-center overflow-x-scroll justify-start gap-5 flex-nowrap h-[55%] w-full py-5 mt-10"
+    >
+      <NewTask />
+      <AcceptTask />
+      <CompleteTask />
+      <FailedTask />
     </div>
   );
-}
+};
 
-export default Tasklist
+export default Tasklist;
