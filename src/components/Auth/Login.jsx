@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
-const Login = ({ handleLogin }) => {
+const Login = ({ handleLogin, user }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  
+  const {setLoggedInUser} = useContext(AuthContext);
+
   const SubmitHandler = (e) => {
     e.preventDefault();
-    handleLogin(email,password)
+    handleLogin(email, password);
 
+
+
+    if(user){
+      setLoggedInUser(user);
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+    }
     setPassword("");
     setEmail("");
   };

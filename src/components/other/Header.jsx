@@ -1,24 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
-
 const Header = (props) => {
+  const [userName, setuserName] = useState("Guest")
   const empName = useContext(AuthContext);
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+ 
+  useEffect(() => {
+     
+  if (loggedInUser.role == "admin") {
+    setuserName("Admin");
+  } else {
+    setuserName(loggedInUser.data.firstName);
+  }
 
-  console.log();
+  console.log(loggedInUser.role);
+
+  
+ 
+  }, [])
+  
+
   const logOutUser = () => {
-    console.log(props);
-
     localStorage.setItem("loggedInUser", "");
     props.changeUser("");
-  }; 
+  };
 
   return (
     <header className=" flex justify-between px-7 text-white bg-[#1c1c1c] item-end font-bold align-middle p-3 rounded-md  ">
       <div className="bg-transparent ">
         <h2 className="bg-transparent font-semibold text-lg ">Hii </h2>
         <span className="bg-transparent font-semibold text-2xl">
-          {empName.userData.employees.firstName || "Guest"} 👋
+          { userName || "Guest"} 👋
         </span>
       </div>
       <button

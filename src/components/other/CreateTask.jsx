@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Modal from "./Modal";
+
+// const [showForm, setshowForm] = useState(false);
 
 const CreateTask = () => {
+  const [showModal, setshowModal] = useState(false);
+
   const [taskTitle, settaskTitle] = useState("");
   const [taskDescription, settaskDesrription] = useState("");
   const [taskDate, settaskDate] = useState("");
@@ -26,16 +31,24 @@ const CreateTask = () => {
     setnewTask(taskObject);
 
     const data = JSON.parse(localStorage.getItem("employees"));
+
+    let found = false;
+
     data.forEach((elem) => {
-      if (elem.firstName == asignTo) {
-        if (!elem.tasks) {
-          elem.tasks = [];
-        }
+      if (elem.firstName.trim().toLowerCase() == asignTo.trim().toLowerCase()) {
         elem.tasks.push(taskObject);
         elem.taskCount.newTask += 1;
         console.log(elem);
+        found = true;
       }
     });
+
+    if (!found) {
+      // alert("Employee not found");
+      setshowModal(true);
+      console.log(showModal);
+      
+    }
 
     localStorage.setItem("employees", JSON.stringify(data));
     console.log(data);
@@ -45,6 +58,14 @@ const CreateTask = () => {
     setasignTo("");
     setcategory("");
   };
+
+  useEffect(() => {
+    if (showModal) {
+      console.log(`model aayegaa`);
+      
+    }
+  }, [showModal]);
+
   return (
     <div>
       <form
@@ -56,7 +77,6 @@ const CreateTask = () => {
       >
         <div className="w-[40%] px-10 ">
           <div>
-            {" "}
             <h3>Task Title</h3>
             <input
               value={taskTitle}
@@ -66,7 +86,7 @@ const CreateTask = () => {
               type="text"
               placeholder="Make a UI design"
             />
-          </div>{" "}
+          </div>
           <div>
             <h3>Date</h3>
             <input
@@ -76,9 +96,8 @@ const CreateTask = () => {
               }}
               type="date"
             />
-          </div>{" "}
+          </div>
           <div>
-            {" "}
             <h3>Assign to</h3>
             <input
               value={asignTo}
@@ -88,9 +107,8 @@ const CreateTask = () => {
               type="text"
               placeholder=" Employee Name"
             />
-          </div>{" "}
+          </div>
           <div>
-            {" "}
             <h3>Category</h3>
             <input
               value={category}
@@ -101,26 +119,33 @@ const CreateTask = () => {
               placeholder="Design, dev, etc.."
             />
           </div>
-        </div>{" "}
-        <div className="w-[40%] px-10   ">
-          {" "}
+        </div>
+        <div className="w-[40%] px-10">
           <h3>Description</h3>
           <textarea
             value={taskDescription}
             onChange={(e) => {
               settaskDesrription(e.target.value);
             }}
-            className=" resize-none w-[100%] rounded-md bg-transparent border-[1px] border-bg-gray-400"
-            name=""
+            className="resize-none w-[100%] rounded-md bg-transparent border-[1px] border-bg-gray-400"
             cols={30}
             rows={10}
-            id=""
           ></textarea>
           <button className="bg-emerald-600 mb-8 w-full py-2 rounded-xl mt-5">
             Create Task
           </button>
         </div>
       </form>
+
+      {showModal && (
+        <Modal
+          onClose={() => setshowModal(false)}
+          onCreate={() => {
+            setshowModal(false);
+            console.log("Open employee creation form");
+          }}
+        />
+      )}
     </div>
   );
 };

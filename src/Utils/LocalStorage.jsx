@@ -6,10 +6,10 @@ const employeesData = [
     email: "employee1@example.com",
     password: "123",
     taskCount: {
-      active: 1,
-      newTask: 1,
-      completed: 1,
-      failed: 1,
+      active: 3,
+      newTask: 3,
+      completed: 3,
+      failed: 2,
     },
     tasks: [
       {
@@ -42,6 +42,56 @@ const employeesData = [
         completed: false,
         failed: true,
       },
+      {
+        title: "Design new UI",
+        description: "Create mockups for dashboard revamp.",
+        date: "2025-05-01",
+        category: "Design",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Team standup",
+        description: "Daily status meeting.",
+        date: "2025-05-02",
+        category: "Meetings",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Database migration",
+        description: "Migrate records to new schema.",
+        date: "2025-05-03",
+        category: "Database",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Refactor code",
+        description: "Improve function structure.",
+        date: "2025-05-04",
+        category: "Development",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Update terms page",
+        description: "Fix broken links and outdated info.",
+        date: "2025-05-05",
+        category: "Maintenance",
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+      },
     ],
   },
   {
@@ -50,10 +100,10 @@ const employeesData = [
     email: "employee2@example.com",
     password: "123",
     taskCount: {
-      active: 1,
-      newTask: 1,
-      completed: 1,
-      failed: 0,
+      active: 3,
+      newTask: 3,
+      completed: 3,
+      failed: 1,
     },
     tasks: [
       {
@@ -76,6 +126,56 @@ const employeesData = [
         completed: true,
         failed: false,
       },
+      {
+        title: "Create landing page",
+        description: "Design layout for new campaign.",
+        date: "2025-05-01",
+        category: "Design",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Customer feedback analysis",
+        description: "Analyze survey results.",
+        date: "2025-05-02",
+        category: "Analytics",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Organize project files",
+        description: "Clean and structure project folders.",
+        date: "2025-05-03",
+        category: "Organization",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Fix broken styles",
+        description: "Resolve styling bugs on product pages.",
+        date: "2025-05-04",
+        category: "Frontend",
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+      },
+      {
+        title: "Update documentation",
+        description: "Ensure all features are documented.",
+        date: "2025-05-05",
+        category: "Documentation",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
     ],
   },
   {
@@ -84,10 +184,10 @@ const employeesData = [
     email: "employee3@example.com",
     password: "123",
     taskCount: {
-      active: 1,
-      newTask: 1,
-      completed: 2,
-      failed: 1,
+      active: 3,
+      newTask: 3,
+      completed: 4,
+      failed: 2,
     },
     tasks: [
       {
@@ -130,6 +230,46 @@ const employeesData = [
         completed: true,
         failed: false,
       },
+      {
+        title: "Develop login UI",
+        description: "Code login page with validation.",
+        date: "2025-05-01",
+        category: "Frontend",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Set up CI/CD",
+        description: "Automate deployment with GitHub Actions.",
+        date: "2025-05-02",
+        category: "DevOps",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Update readme",
+        description: "Add build instructions and usage.",
+        date: "2025-05-03",
+        category: "Documentation",
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+      },
+      {
+        title: "Configure Webpack",
+        description: "Optimize bundles for production.",
+        date: "2025-05-04",
+        category: "Development",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
     ],
   },
   {
@@ -138,9 +278,9 @@ const employeesData = [
     email: "employee4@example.com",
     password: "123",
     taskCount: {
-      active: 1,
-      newTask: 1,
-      completed: 2,
+      active: 3,
+      newTask: 3,
+      completed: 4,
       failed: 0,
     },
     tasks: [
@@ -174,6 +314,56 @@ const employeesData = [
         completed: true,
         failed: false,
       },
+      {
+        title: "Write release notes",
+        description: "Summarize updates for end users.",
+        date: "2025-05-01",
+        category: "Documentation",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Project sync",
+        description: "Weekly sync with cross-functional team.",
+        date: "2025-05-02",
+        category: "Meetings",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Add FAQ section",
+        description: "Add common questions to help page.",
+        date: "2025-05-03",
+        category: "Frontend",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Monitor uptime",
+        description: "Check server uptime reports.",
+        date: "2025-05-04",
+        category: "Monitoring",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Update contact page",
+        description: "Add new office addresses.",
+        date: "2025-05-05",
+        category: "Content",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
     ],
   },
   {
@@ -182,10 +372,10 @@ const employeesData = [
     email: "employee5@example.com",
     password: "123",
     taskCount: {
-      active: 1,
-      newTask: 1,
-      completed: 2,
-      failed: 1,
+      active: 3,
+      newTask: 3,
+      completed: 4,
+      failed: 2,
     },
     tasks: [
       {
@@ -228,6 +418,46 @@ const employeesData = [
         completed: true,
         failed: false,
       },
+      {
+        title: "Keyword research",
+        description: "Find top-performing keywords.",
+        date: "2025-05-01",
+        category: "SEO",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+      },
+      {
+        title: "Update privacy policy",
+        description: "Add GDPR compliance notes.",
+        date: "2025-05-02",
+        category: "Legal",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "Post on LinkedIn",
+        description: "Share product launch update.",
+        date: "2025-05-03",
+        category: "Social Media",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+      },
+      {
+        title: "404 error fix",
+        description: "Fix broken link on pricing page.",
+        date: "2025-05-04",
+        category: "Bug Fixing",
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+      },
     ],
   },
 ];
@@ -240,10 +470,9 @@ const adminData = [
   },
 ];
 
-
 export const setLocalStorage = () => {
   localStorage.setItem("employees", JSON.stringify(employeesData));
-  localStorage.setItem("admin", JSON.stringify(adminData)); 
+  localStorage.setItem("admin", JSON.stringify(adminData));
 };
 
 export const GetLocalStorage = () => {
@@ -251,8 +480,4 @@ export const GetLocalStorage = () => {
   const admin = JSON.parse(localStorage.getItem("admin"));
 
   return { employees, admin };
-  
-
 };
-
-
