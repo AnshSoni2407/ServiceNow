@@ -35,25 +35,23 @@ const CreateTask = () => {
 
     let found = false;
 
-    data.forEach((elem) => {
-      if(elem.firstName.trim().toLowerCase() != asignTo.trim().toLowerCase()) {
-setshowModal(true);
-      }
 
 
 
-     else if (elem.firstName.trim().toLowerCase() == asignTo.trim().toLowerCase()) {
-        elem.tasks.push(taskObject);
-        elem.taskCount.newTask += 1;
-        console.log(elem);
-        found = true;
-      }
-    });
+    const employeeName = asignTo.trim().toLowerCase();
+    const matchedEmployee = data.find(
+      (emp) => emp.firstName.trim().toLowerCase() === employeeName
+    );
 
-    if (!found) {
-      
+    if (matchedEmployee) {
+      matchedEmployee.tasks.push(taskObject);
+      matchedEmployee.taskCount.newTask += 1;
+      localStorage.setItem("employees", JSON.stringify(data));
+      console.log("Task assigned to", matchedEmployee);
+    } else {
       setshowModal(true);
     }
+
 
     localStorage.setItem("employees", JSON.stringify(data));
     console.log(data);
@@ -96,11 +94,13 @@ setshowModal(true);
                 settaskDate(e.target.value);
               }}
               type="date"
+              required
             />
           </div>
           <div>
             <h3>Assign to</h3>
             <input
+              required
               className="border-[1px] border-bg-gray-400 rounded-md bg-transparent w-full outline-1 outline-white mt-1"
               value={asignTo}
               onChange={(e) => {
@@ -113,6 +113,7 @@ setshowModal(true);
           <div>
             <h3>Category</h3>
             <input
+              required
               className="border-[1px] border-bg-gray-400 rounded-md bg-transparent w-full outline-1 outline-white mt-1"
               value={category}
               onChange={(e) => {
@@ -143,22 +144,26 @@ setshowModal(true);
 
       {showModal && (
         <Modal
-        onsubmission={submitHandler}
+          onsubmission={submitHandler}
           onClose={() => setshowModal(false)}
           onCreate={() => {
             setshowModal(false);
             setshowForm(true);
 
-            console.log("Open employee creation form");
           }}
         />
       )}
-      {showForm && <CreateUser formClose={()=>{
-        setshowForm(false);
-      }} modalClose={()=>{
-        setshowForm(false);
-      }} />}
-    </div>  
+      {showForm && (
+        <CreateUser
+          formClose={() => {
+            setshowForm(false);
+          }}
+          modalClose={() => {
+            setshowForm(false);
+          }}
+        />
+      )}
+    </div>
   );
 };
 

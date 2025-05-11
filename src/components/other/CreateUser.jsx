@@ -78,6 +78,7 @@ const CreateUser = ({ modalClose, formClose }) => {
                 // onChange={(e) => setId(e.target.value)}
                 onChange={(e) => setId(e.target.value)}
                 readOnly
+                required
                 placeholder="Unique ID"
                 className="border-2 border-emerald-500 rounded-lg p-2 text-black w-full"
               />
@@ -87,6 +88,7 @@ const CreateUser = ({ modalClose, formClose }) => {
                 Enter your Name
               </h2>
               <input
+                required
                 type="text"
                 id="firstName"
                 value={fName}
@@ -104,6 +106,7 @@ const CreateUser = ({ modalClose, formClose }) => {
                 Enter your Email
               </h2>
               <input
+                required
                 type="email"
                 id="email"
                 value={email}
@@ -119,6 +122,7 @@ const CreateUser = ({ modalClose, formClose }) => {
               <input
                 type="password"
                 id="password"
+                required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your Password"

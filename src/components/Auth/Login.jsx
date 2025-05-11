@@ -33,7 +33,7 @@ const Login = ({ handleLogin, user }) => {
               setEmail(e.target.value);
             }}
             required
-            className="text-white outline-none bg-transparent border-[2px] rounded-full py-2 px-2 text-xl text-black  placeholder:text-white border-emerald-600"
+            className="text-white outline-none bg-transparent border-[2px] rounded-full py-2 px-2 text-xl   placeholder:text-white border-emerald-600"
             type="email"
             placeholder="Enter your Email"
           />
@@ -43,7 +43,7 @@ const Login = ({ handleLogin, user }) => {
               setPassword(e.target.value);
             }}
             required
-            className="text-white outline-none bg-transparent border-[2px] rounded-full py-2 px-2 text-xl text-black  placeholder:text-white border-emerald-600"
+            className="text-white outline-none bg-transparent border-[2px] rounded-full py-2 px-2 text-xl  placeholder:text-white border-emerald-600"
             type="password"
             placeholder="Enter your Password"
           />
