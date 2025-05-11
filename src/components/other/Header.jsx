@@ -2,24 +2,19 @@ import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Header = (props) => {
-  const [userName, setuserName] = useState("Guest")
+  const [userName, setuserName] = useState("Guest");
   const empName = useContext(AuthContext);
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
- 
+
   useEffect(() => {
-     
-  if (loggedInUser.role == "admin") {
-    setuserName("Admin");
-  } else {
-    setuserName(loggedInUser.data.firstName);
-  }
+    if (loggedInUser.role == "admin") {
+      setuserName("Admin");
+    } else {
+      setuserName(loggedInUser.data.firstName);
+    }
 
-  console.log(loggedInUser.role);
-
-  
- 
-  }, [])
-  
+    console.log(loggedInUser.role);
+  }, []);
 
   const logOutUser = () => {
     localStorage.setItem("loggedInUser", "");
@@ -31,7 +26,7 @@ const Header = (props) => {
       <div className="bg-transparent ">
         <h2 className="bg-transparent font-semibold text-lg ">Hii </h2>
         <span className="bg-transparent font-semibold text-2xl">
-          { userName || "Guest"} 👋
+          {userName || "Guest"} 👋
         </span>
       </div>
       <button

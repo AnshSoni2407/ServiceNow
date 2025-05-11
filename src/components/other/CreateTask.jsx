@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
+import CreateUser from "./CreateUser";
 
-// const [showForm, setshowForm] = useState(false);
 
 const CreateTask = () => {
   const [showModal, setshowModal] = useState(false);
+  const [showForm, setshowForm] = useState(false);
 
   const [taskTitle, settaskTitle] = useState("");
   const [taskDescription, settaskDesrription] = useState("");
@@ -35,7 +36,13 @@ const CreateTask = () => {
     let found = false;
 
     data.forEach((elem) => {
-      if (elem.firstName.trim().toLowerCase() == asignTo.trim().toLowerCase()) {
+      if(elem.firstName.trim().toLowerCase() != asignTo.trim().toLowerCase()) {
+setshowModal(true);
+      }
+
+
+
+     else if (elem.firstName.trim().toLowerCase() == asignTo.trim().toLowerCase()) {
         elem.tasks.push(taskObject);
         elem.taskCount.newTask += 1;
         console.log(elem);
@@ -44,10 +51,8 @@ const CreateTask = () => {
     });
 
     if (!found) {
-      // alert("Employee not found");
-      setshowModal(true);
-      console.log(showModal);
       
+      setshowModal(true);
     }
 
     localStorage.setItem("employees", JSON.stringify(data));
@@ -59,12 +64,6 @@ const CreateTask = () => {
     setcategory("");
   };
 
-  useEffect(() => {
-    if (showModal) {
-      console.log(`model aayegaa`);
-      
-    }
-  }, [showModal]);
 
   return (
     <div>
@@ -79,6 +78,7 @@ const CreateTask = () => {
           <div>
             <h3>Task Title</h3>
             <input
+              className="border-[2px] border-bg-gray-400 rounded-md bg-transparent w-full outline-1 outline-white mt-1"
               value={taskTitle}
               onChange={(e) => {
                 settaskTitle(e.target.value);
@@ -90,6 +90,7 @@ const CreateTask = () => {
           <div>
             <h3>Date</h3>
             <input
+              className="border-[1px] border-bg-gray-400 rounded-md bg-transparent w-full outline-1 outline-white mt-1"
               value={taskDate}
               onChange={(e) => {
                 settaskDate(e.target.value);
@@ -100,6 +101,7 @@ const CreateTask = () => {
           <div>
             <h3>Assign to</h3>
             <input
+              className="border-[1px] border-bg-gray-400 rounded-md bg-transparent w-full outline-1 outline-white mt-1"
               value={asignTo}
               onChange={(e) => {
                 setasignTo(e.target.value);
@@ -111,6 +113,7 @@ const CreateTask = () => {
           <div>
             <h3>Category</h3>
             <input
+              className="border-[1px] border-bg-gray-400 rounded-md bg-transparent w-full outline-1 outline-white mt-1"
               value={category}
               onChange={(e) => {
                 setcategory(e.target.value);
@@ -127,11 +130,12 @@ const CreateTask = () => {
             onChange={(e) => {
               settaskDesrription(e.target.value);
             }}
-            className="resize-none w-[100%] rounded-md bg-transparent border-[1px] border-bg-gray-400"
+            className="resize-none w-[100%] rounded-md bg-transparent border-[1px] border-bg-gray-400
+            outline-1 outline-white mt-1"
             cols={30}
             rows={10}
           ></textarea>
-          <button className="bg-emerald-600 mb-8 w-full py-2 rounded-xl mt-5">
+          <button className="bg-emerald-600 mb-8 w-full py-2 rounded-xl mt-5 hover:bg-emerald-400">
             Create Task
           </button>
         </div>
@@ -139,14 +143,22 @@ const CreateTask = () => {
 
       {showModal && (
         <Modal
+        onsubmission={submitHandler}
           onClose={() => setshowModal(false)}
           onCreate={() => {
             setshowModal(false);
+            setshowForm(true);
+
             console.log("Open employee creation form");
           }}
         />
       )}
-    </div>
+      {showForm && <CreateUser formClose={()=>{
+        setshowForm(false);
+      }} modalClose={()=>{
+        setshowForm(false);
+      }} />}
+    </div>  
   );
 };
 
