@@ -43,6 +43,8 @@ const CreateTask = () => {
       (emp) => emp.firstName.trim().toLowerCase() === employeeName
     );
 
+    
+
     if (matchedEmployee) {
       matchedEmployee.tasks.push(taskObject);
       matchedEmployee.taskCount.newTask += 1;

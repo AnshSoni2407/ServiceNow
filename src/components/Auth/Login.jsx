@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ handleLogin, user }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const {setLoggedInUser} = useContext(AuthContext);
+  const { setLoggedInUser } = useContext(AuthContext);
 
   const SubmitHandler = (e) => {
     e.preventDefault();
     handleLogin(email, password);
 
-
-
-    if(user){
+    if (user) {
       setLoggedInUser(user);
       localStorage.setItem("loggedInUser", JSON.stringify(user));
     }
@@ -21,6 +21,8 @@ const Login = ({ handleLogin, user }) => {
   };
   return (
     <div className="  flex justify-center items-center h-screen w-screen">
+      <ToastContainer />
+
       <div className=" border-2 border-emerald-500 rounded-lg p-12 ">
         <form
           onSubmit={SubmitHandler}

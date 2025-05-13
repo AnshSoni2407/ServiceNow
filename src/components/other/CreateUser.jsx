@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CreateUser = ({ modalClose, formClose }) => {
   const [Id, setId] = useState("");
@@ -50,6 +51,19 @@ const CreateUser = ({ modalClose, formClose }) => {
     setTimeout(() => {
       formClose();
     }, 1000);
+
+    toast.success(
+      `User Created Successfully \nYou can assign task to ${fName} now!`,
+      {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
   };
   return (
     <div className="fixed top-0 left-0 flex justify-center items-center h-screen w-screen bg-black/80">
