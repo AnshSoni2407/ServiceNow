@@ -50,7 +50,7 @@ const CreateUser = ({ modalClose, formClose }) => {
     setId("");
     setTimeout(() => {
       formClose();
-    }, 1000);
+    }, 500);
 
     toast.success(
       `User Created Successfully \nYou can assign task to ${fName} now!`,
@@ -121,6 +121,7 @@ const CreateUser = ({ modalClose, formClose }) => {
               </h2>
               <input
                 required
+                
                 type="email"
                 id="email"
                 value={email}

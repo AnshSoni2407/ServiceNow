@@ -20,7 +20,7 @@ const Login = ({ handleLogin, user }) => {
     setEmail("");
   };
   return (
-    <div className="  flex justify-center items-center h-screen w-screen">
+    <div className="text-sm md:text-lg lg:text-xl  flex justify-center items-center h-screen w-screen">
       <ToastContainer />
 
       <div className=" border-2 border-emerald-500 rounded-lg p-12 ">

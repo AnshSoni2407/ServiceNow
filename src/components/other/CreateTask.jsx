@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import CreateUser from "./CreateUser";
-
+import { toast, ToastContainer } from "react-toastify";
 
 const CreateTask = () => {
   const [showModal, setshowModal] = useState(false);
@@ -35,25 +35,27 @@ const CreateTask = () => {
 
     let found = false;
 
-
-
-
     const employeeName = asignTo.trim().toLowerCase();
     const matchedEmployee = data.find(
       (emp) => emp.firstName.trim().toLowerCase() === employeeName
     );
-
-    
 
     if (matchedEmployee) {
       matchedEmployee.tasks.push(taskObject);
       matchedEmployee.taskCount.newTask += 1;
       localStorage.setItem("employees", JSON.stringify(data));
       console.log("Task assigned to", matchedEmployee);
+      toast.success("Task assigned successfully");
     } else {
       setshowModal(true);
-    }
+      toast.error("Employee not found", {
+        autoClose: 2000,
+       
+        pauseOnHover: true,
 
+
+      });
+    }
 
     localStorage.setItem("employees", JSON.stringify(data));
     console.log(data);
@@ -64,9 +66,16 @@ const CreateTask = () => {
     setcategory("");
   };
 
-
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        theme="dark"
+        pauseOnHoverx
+        closeOnClick
+        draggable
+      />
       <form
         id="adminform"
         onSubmit={(e) => {
@@ -151,7 +160,6 @@ const CreateTask = () => {
           onCreate={() => {
             setshowModal(false);
             setshowForm(true);
-
           }}
         />
       )}
