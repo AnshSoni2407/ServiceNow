@@ -10,11 +10,11 @@ const AllTask = () => {
   return (
     <div id="Alltaskscroll" className="bg-[#1c1c1c] p-5 rounded mt-5 ">
       <div className="bg-red-400 mb-3 py-2 px-4 flex justify-between rounded-l text-center text-xl font-bold">
-        <h2 className="w-[20%] text-left">Name</h2>
-        <h3 className="w-[20%]">New Task</h3>
-        <h3 className="w-[20%]">Active Task</h3>
-        <h3 className="w-[20%]">Complete Task</h3>
-        <h3 className="w-[20%]">Failed Task</h3>
+        <h2 className="text-sm md:text-base w-[20%] text-left">Name</h2>
+        <h3 className="text-sm md:text-base w-[20%]">New Task</h3>
+        <h3 className="text-sm md:text-base w-[20%]">Active Task</h3>
+        <h3 className="text-sm md:text-base w-[20%]">Complete Task</h3>
+        <h3 className="text-sm md:text-base w-[20%]">Failed Task</h3>
       </div>
 
       {authData.userData.employees.map((elem, idx) => {

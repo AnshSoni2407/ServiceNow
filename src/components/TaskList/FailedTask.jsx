@@ -2,7 +2,7 @@ import React from 'react'
 
 const FailedTask = ({data}) => {
   return (
-    <div className=" relative flex-shrink-0 h-full w-[350px] rounded-xl bg-red-400">
+    <div className=" relative flex-shrink-0 h-full w-[300px] md:w-[350px] rounded-xl bg-red-400">
       <div>
         <div className="flex justify-between px-5 py-2 text-white text-xl font-semibold">
           <h4 className="bg-red-600 p-1 rounded-md">{data.category}</h4>{" "}
@@ -17,7 +17,7 @@ const FailedTask = ({data}) => {
       </p>
       <div className="flex justify-evenly px-5 py-2 mt-5 gap-1 text-white text-s font-semibold">
         <button className=" bg-red-600 rounded p-1 w-[80%] absolute bottom-7">
-        Failed
+          Failed
         </button>
       </div>
     </div>

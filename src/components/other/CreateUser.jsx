@@ -67,7 +67,7 @@ const CreateUser = ({ modalClose, formClose }) => {
   };
   return (
     <div className="fixed top-0 left-0 flex justify-center items-center h-screen w-screen bg-black/80">
-      <form className="relative w-1/2 bg-white/70 text-center rounded-xl p-8 flex flex-col gap-6 text-black">
+      <form className="relative w-[90%] md:w-1/2 bg-white/70 text-center rounded-xl p-8 flex flex-col gap-6 text-black">
         {/*  Close Button */}
         <div
           onClick={modalClose}
